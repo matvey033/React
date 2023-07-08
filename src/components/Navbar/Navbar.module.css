@@ -12,6 +12,11 @@
     margin-bottom: 7px;
 }
 
+.friend {
+    color: greenyellow;
+    margin-top: 28px;
+}
+
 a {
     text-decoration: none;
 }

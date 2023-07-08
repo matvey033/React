@@ -17,12 +17,28 @@
 
 .message {
     padding: 10px;
+    margin-left: 100px;
 }
 
 .messageItem {
     margin-bottom: 5px;
 }
 
+.messageImg img {
+    width: 30px;
+    border-radius: 50px;
+}
+
+.answerItem {
+    padding: 10px;
+    margin-left: 150px;
+}
+
 a {
     color: whitesmoke;
 }
+/* 
+img {
+    width: 30px;
+    border-radius: 50px;
+} */
