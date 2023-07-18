@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './Messages.module.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
@@ -9,6 +10,13 @@ const Messages = (props) => {
 
     let messageEls = props.state.messageData.map(message => <Message message={message.message} answer={message.answer} img={message.img} />)
 
+    let newMessage = React.createRef();
+
+    let newMessageEl = () => {
+        let text = newMessage.current.value;
+        alert(text);
+    }
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialog}>
@@ -16,6 +24,10 @@ const Messages = (props) => {
             </div>
             <div className={s.message}>
                 {messageEls}
+                <textarea ref={newMessage}></textarea>
+                <div>
+                    <button onClick={newMessageEl}>AddMessage</button>
+                </div>
             </div>
         </div>
     );
