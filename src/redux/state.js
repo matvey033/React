@@ -1,9 +1,11 @@
+import { myRender } from "../render";
+
 let state = {
   profilePage: {
     postData: [
-      { message: 'Hi, how are you?', count: '13' },
-      { message: 'What did you do in this week?', count: '19' },
-      { message: 'I wait your answers', count: '8' },
+      { id: 1, message: 'Hi, how are you?', likesCount: '13' },
+      { id: 2, message: 'What did you do in this week?', likesCount: '19' },
+      { id: 3, message: 'I wait your answers', likesCount: '8' },
     ]
   },
 
@@ -24,5 +26,17 @@ let state = {
 
   sidebar: {}
 }
+
+export let addPost = (postMessage) => {
+  let newPost = {
+    id: 4,
+    message: postMessage,
+    likesCount: 0
+  }
+
+  state.profilePage.postData.push(newPost);
+  myRender(state);
+}
+
 
 export default state;
