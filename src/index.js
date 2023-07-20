@@ -1,9 +1,8 @@
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state';
-import { addPost } from './redux/state';
+import state, { addPost, changeNewPostText } from './redux/state';
 import { myRender } from './render';
 
-myRender(state, addPost);
+myRender(state);
 
 
 reportWebVitals();
