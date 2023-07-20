@@ -1,4 +1,4 @@
-import { myRender } from "../render";
+let myRender;
 
 let state = {
   profilePage: {
@@ -28,7 +28,7 @@ let state = {
   sidebar: {}
 }
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 4,
     message: state.profilePage.newPostText,
@@ -40,10 +40,11 @@ export let addPost = () => {
   myRender(state);
 }
 
-export let changeNewPostText = (newText) => {
+export const changeNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   myRender(state);
 }
 
+export const subscribe = (observer) => myRender = observer;
 
 export default state;
