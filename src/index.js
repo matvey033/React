@@ -3,20 +3,21 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
-import state, { addPost, changeNewPostText, subscribe } from './redux/state';
+import store from './redux/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export let myRender = (state) => {
   root.render(
     <React.StrictMode>
-      <App state={state} addPost={addPost} changeNewPostText={changeNewPostText} />
+      <App state={state} addPost={store.addPost.bind(store)}
+        changeNewPostText={store.changeNewPostText.bind(store)} />
     </React.StrictMode>
   );
 }
 
-myRender(state);
+myRender(store.getState());
 
-subscribe(myRender);
+store.subscribe(myRender);
 
 reportWebVitals();
