@@ -1,8 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT';
-
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const CHANGE_NEW_MESSAGE_BODY = 'CHANGE_NEW_MESSAGE_BODY';
+import { profileReducer } from "./profile-reducer";
+import { messagesReducer } from "./messages-reducer";
+import { sidebarReducer } from "./sidebar-reducer";
 
 let store = {
   _state: {
@@ -64,45 +62,13 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 4,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0
-      }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
-      this._state.profilePage.postData.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    }
-    else if (action.type === CHANGE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    }
-    else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        id: 4, message: this._state.messagesPage.newMessageBody, answer: 'Ok',
-          img: 'https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg'
-      }
-
-      this._state.messagesPage.messageData.push(newMessage);
-      this._state.messagesPage.newMessageBody = '';
-      this._callSubscriber(this._state);
-    }
-    else if (action.type === CHANGE_NEW_MESSAGE_BODY) {
-      this._state.messagesPage.newMessageBody = action.newBody;
-      this._callSubscriber(this._state);
-    }
+    this._callSubscriber(this._state);
   }
 };
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const onPostChangeActionCreator = (text) =>
-  ({ type: CHANGE_NEW_POST_TEXT, newText: text });
-
-export const addNewMessageActionCreator = () => ({ type: ADD_MESSAGE });
-export const onMessageElChangeActionCreator = (body) =>
-  ({ type: CHANGE_NEW_MESSAGE_BODY, newBody: body });
 
 export default store;
 window.store = store;
