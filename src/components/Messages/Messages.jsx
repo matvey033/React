@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Messages.module.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
-import { addNewMessageActionCreator, onMessageElChangeActionCreator } from '../../redux/messages-reducer';
 
 const Messages = (props) => {
 
@@ -12,13 +11,13 @@ const Messages = (props) => {
     let messageEls = props.messagesPage.messageData
         .map(message => <Message message={message.message} answer={message.answer} img={message.img} />)
 
-    let addNewMessage = () => {
-        props.dispatch(addNewMessageActionCreator());
+    let onAddNewMessage = () => {
+        props.addNewMessage();
     }
 
     let onMessageChange = (e) => {
         let body = e.target.value;
-        props.dispatch(onMessageElChangeActionCreator(body));
+        props.messageChange(body);
     }
 
     return (
@@ -30,7 +29,7 @@ const Messages = (props) => {
                 {messageEls}
                 <textarea onChange={onMessageChange} value={props.newMessageBody} />
                 <div>
-                    <button onClick={addNewMessage}>AddMessage</button>
+                    <button onClick={onAddNewMessage}>Send</button>
                 </div>
             </div>
         </div>
