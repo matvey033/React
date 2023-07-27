@@ -8,7 +8,7 @@ import Setting from './components/Setting/Setting';
 import { Route, Routes } from 'react-router-dom';
 import MessagesContainer from './components/Messages/MessagesContainer';
 
-const App = (props) => {
+const App = () => {
   return (
       <div className='app-wrapper'>
         <Header />
@@ -16,7 +16,7 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Routes>
 
-            <Route path="/" element={<Profile />} />
+            {/* <Route path="/" element={<Profile />} /> */}
             <Route path="/profile/*" element={<Profile />} />
 
             <Route path="/messages/*" element={<MessagesContainer />} />

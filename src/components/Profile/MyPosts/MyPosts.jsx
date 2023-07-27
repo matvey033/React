@@ -3,7 +3,6 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-
     let postEls = props.postData.map(post => <Post message={post.message} count={post.likesCount} />)
 
     let onAddPost = () => {
