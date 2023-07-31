@@ -2,14 +2,14 @@ import { addNewMessageActionCreator, onMessageElChangeActionCreator } from '../.
 import Messages from './Messages';
 import { connect } from 'react-redux';
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         messagesPage: state.messagesPage,
         newMessageBody: state.newMessageBody
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         messageChange: (body) => {
             dispatch(onMessageElChangeActionCreator(body));

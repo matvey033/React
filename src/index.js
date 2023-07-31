@@ -9,23 +9,14 @@ import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let myRender = (state) => {
-  root.render(
-    <BrowserRouter>
-      <React.StrictMode>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </React.StrictMode>
-    </BrowserRouter>
-  );
-}
-
-myRender(store.getState());
-
-store.subscribe(() => {
-  let state = store.getState();
-  myRender(state);
-});
+root.render(
+  <BrowserRouter>
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  </BrowserRouter>
+)
 
 reportWebVitals();
