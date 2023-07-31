@@ -41,22 +41,21 @@ let initialState = {
 export const messagesReducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case ADD_MESSAGE: {
+    case ADD_MESSAGE:
       let newMessage = {
         id: 4, message: state.newMessageBody, answer: 'Ok',
         img: 'https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg'
       }
-      let stateCopy = {...state};
-      stateCopy.messageData = [...state.messageData];
-      stateCopy.messageData.push(newMessage);
-      stateCopy.newMessageBody = '';
-      return stateCopy;
-    }
-    case CHANGE_NEW_MESSAGE_BODY: {
-      let stateCopy = {...state};
-      stateCopy.newMessageBody = action.newBody;
-      return stateCopy;
-    }
+      return {
+        ...state,
+        messageData: [...state.messageData, newMessage],
+        newMessageBody: ''
+      };
+    case CHANGE_NEW_MESSAGE_BODY:
+      return {
+        ...state,
+        newMessageBody: action.newBody
+      };
     default:
       return state;
   }
