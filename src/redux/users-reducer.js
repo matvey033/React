@@ -4,10 +4,22 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
   users: [
-    // { id: 1, followed: true, fullName: 'Matvey', status: 'All okey!', location: { city: 'Belgorod', country: 'Russia' } },
-    // { id: 2, followed: true, fullName: 'Oleg', status: 'All okey, too!', location: { city: 'Minsk', country: 'Belarus' } },
-    // { id: 3, followed: false, fullName: 'Andrew', status: 'I`m okey!', location: { city: 'Piter', country: 'Russia' } },
-    // { id: 4, followed: false, fullName: 'Katya', status: 'I`m okey!', location: { city: 'Moscow', country: 'Russia' } },
+    // {
+    //   id: 1, photoUrl: 'https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg',
+    //   followed: true, fullName: 'Matvey', status: 'All okey!', location: { city: 'Belgorod', country: 'Russia' }
+    // },
+    // {
+    //   id: 2, photoUrl: 'https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg',
+    //   followed: true, fullName: 'Oleg', status: 'All okey, too!', location: { city: 'Minsk', country: 'Belarus' }
+    // },
+    // {
+    //   id: 3, photoUrl: 'https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg',
+    //   followed: false, fullName: 'Andrew', status: 'I`m okey!', location: { city: 'Piter', country: 'Russia' }
+    // },
+    // {
+    //   id: 4, photoUrl: 'https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg',
+    //   followed: false, fullName: 'Katya', status: 'I`m okey!', location: { city: 'Moscow', country: 'Russia' }
+    // },
   ]
 };
 
@@ -35,6 +47,7 @@ export const usersReducer = (state = initialState, action) => {
         })
       }
     case SET_USERS:
+      debugger;
       return {
         ...state,
         users: [...state.users, ...action.users]
