@@ -3,7 +3,6 @@ import Messages from './Messages';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-    debugger;
     return {
         messagesPage: state.messagesPage,
         newMessageBody: state.messagesPage.newMessageBody
@@ -11,7 +10,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    debugger;
     return {
         messageChange: (body) => {
             dispatch(onMessageElChangeActionCreator(body));
